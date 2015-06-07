@@ -681,7 +681,7 @@ void lcdWriteByte(uint8_t c,uint8_t rs)
     WRITE(UI_DISPLAY_RW_PIN, LOW);
 #endif
     WRITE(UI_DISPLAY_RS_PIN, rs);
-    HAL::delayMicroseconds(5);
+    HAL::delayMicroseconds(1);
     WRITE(UI_DISPLAY_D0_PIN, c & 0x01);
     WRITE(UI_DISPLAY_D1_PIN, c & 0x02);
     WRITE(UI_DISPLAY_D2_PIN, c & 0x04);
@@ -691,9 +691,9 @@ void lcdWriteByte(uint8_t c,uint8_t rs)
     WRITE(UI_DISPLAY_D6_PIN, c & 0x40);
     WRITE(UI_DISPLAY_D7_PIN, c & 0x80);
     WRITE(UI_DISPLAY_ENABLE_PIN, HIGH);   // enable pulse must be >450ns
-    HAL::delayMicroseconds(5);
+    HAL::delayMicroseconds(1);
     WRITE(UI_DISPLAY_ENABLE_PIN, LOW);   //tc must be >1200ns
-    HAL::delayMicroseconds(5);
+    HAL::delayMicroseconds(1);
 }
 
 #endif 
